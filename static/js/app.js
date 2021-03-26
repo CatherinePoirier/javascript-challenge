@@ -13,33 +13,36 @@ for (var i=0; i<data.length; i++){
     for (var x=0; x<value_list.length; x++){
         rowrow.append('td').text(value_list[x]);
     };
-};
-
-
-//var header=['datetime', 'city', 'state', 'country', 'shape', 'durationMinutes', 'comments']
-// for (var i=0; i<data.length; i++){
-//      console.log(data[i]);
-// }
-//var rowrow=tbody.append('tr');
-// current_data=data[2]
-//------------------------------------------------------
-// data.forEach((one_row)=>{
-//     var rowrow=tbody.append('tr');
-//     // Object.defineProperties(one_row).forEach(([k, v])=>{
-//     //     rowrow.append('td').text(v);
-//     // });
-//     header.forEach((one_key)=>{
-//         rowrow.append('td').text(onerow[one_key]);
-//     });
-// });
-//-------------------------------------------------------
-// value_list=(Object.values(current_data));
-// for (var i=0; i<value_list.length; i++){
-//     rowrow.append('td').text(value_list[i]);
-// }
+ };
 
 //Use a date form in your HTML document and write JavaScript code that will listen for events 
 //and search through the date/time column to find rows that match user input.
 
+var button = d3.select("#filter-btn");  //previously #button  // Select the button
+
+button.on("click", runEnter);       // Create event handlers 
+
+// Complete the event handler function for the form
+function runEnter() {
+    tbody.html("");
+    d3.event.preventDefault();    //Prevent the page from refreshing
+    var inputElement = d3.select("#datetime");   //Select the input element and get the raw HTML node
+
+    var inputValue = inputElement.property("value");   //Get the value property of the input element
+  
+    console.log(inputValue);
+  //  console.log(tableData);
+    var filteredData = tableData.filter(day => day.datetime === inputValue);
+    
+    for (var i=0; i<filteredData.length; i++){   
+    var rowrow=tbody.append('tr');
+    current_data2=filteredData[i];
+    value_list=Object.values(current_data2);
+    for (var x=0; x<value_list.length; x++){
+        rowrow.append('td').text(value_list[x]);
+    };
+};
+    console.log(filteredData);
+}
 
 
