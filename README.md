@@ -1,9 +1,8 @@
 # javascript-challenge
 
+Used the index.html file provided for this challenge. The provided dataset was used to append a table to the web page. I used the given column data of
 
-I used the index.html file provided for this challenge. I used the provided dataset to append a table to the web page. I used the give column data of
-
-date/time, city, state, country, shape, and comment at the very least.
-I added the required search form which filters the data based on a given date within the dataset.
+date/time, city, state, country, shape, and comment.
+Using JavaScript code, I created a date Form in the HTML document that listend for events and then searches through the date/time column to find row that match the input.
 
 
